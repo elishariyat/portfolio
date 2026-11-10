@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elnaz Shariat — Exhibition Booth Designer</title>
+<meta name="description" content="Portfolio of Elnaz Shariat, exhibition booth designer and civil engineering graduate. SketchUp, 3ds Max, AutoCAD, Photoshop.">
+<meta property="og:title" content="Elnaz Shariat — Exhibition Booth Designer">
+<meta property="og:description" content="Selected exhibition booth designs, modeled in SketchUp and rendered in 3ds Max.">
+<meta property="og:image" content="images/persia-machinery.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111111;
+    --surface: #1a1a1a;
+    --line: #2c2c2c;
+    --text: #f3f1ea;
+    --muted: #a8a49a;
+    --accent: #f5b800;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Vazirmatn", system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  html[lang="fa"] body { font-family: "Vazirmatn", "Inter", system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+
+  /* header */
+  header {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(17,17,17,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-weight: 700; letter-spacing: .02em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; align-items: center; gap: 22px; font-size: 14px; color: var(--muted); }
+  nav a:hover { color: var(--text); }
+  .lang {
+    border: 1px solid var(--line); background: transparent; color: var(--text);
+    border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .lang:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* hero */
+  .hero { padding: 88px 0 56px; }
+  .eyebrow { color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  html[lang="fa"] .eyebrow { letter-spacing: 0; text-transform: none; font-size: 14px; }
+  h1 { font-size: clamp(36px, 6vw, 68px); line-height: 1.08; margin: 14px 0 20px; font-weight: 700; letter-spacing: -.02em; }
+  html[lang="fa"] h1 { letter-spacing: 0; line-height: 1.3; }
+  .lead { max-width: 640px; color: var(--muted); font-size: 18px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 15px;
+    border: 1px solid var(--line); transition: .2s;
+  }
+  .btn.primary { background: var(--accent); color: #111; border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn:not(.primary):hover { border-color: var(--accent); color: var(--accent); }
+
+  /* sections */
+  section { padding: 56px 0; }
+  h2 { font-size: 28px; margin-bottom: 28px; letter-spacing: -.01em; }
+  h2::after { content: ""; display: block; width: 40px; height: 3px; background: var(--accent); margin-top: 10px; border-radius: 2px; }
+
+  /* projects */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; cursor: zoom-in; transition: transform .25s, border-color .25s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .card .body { padding: 18px 20px 22px; }
+  .card h3 { font-size: 19px; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 15px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: #262626; color: var(--muted); }
+
+  /* about + skills */
+  .two { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; }
+  .about p { color: var(--muted); font-size: 17px; }
+  .about p + p { margin-top: 14px; }
+  .skills { display: grid; gap: 12px; align-content: start; }
+  .skill {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px;
+  }
+  .skill small { color: var(--muted); font-size: 13px; }
+
+  /* experience */
+  .item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; }
+  .item + .item { margin-top: 16px; }
+  .item h3 { font-size: 18px; }
+  .item .meta { color: var(--accent); font-size: 14px; margin: 2px 0 8px; }
+  .item p { color: var(--muted); }
+
+  /* contact */
+  .contact { text-align: center; padding: 72px 0 88px; border-top: 1px solid var(--line); }
+  .contact h2::after { margin-inline: auto; }
+  .contact p { color: var(--muted); margin-bottom: 26px; }
+  .contact .cta { justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 0 36px; border-top: 1px solid var(--line); }
+
+  /* lightbox */
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none;
+    align-items: center; justify-content: center; z-index: 50; padding: 24px; cursor: zoom-out;
+    flex-direction: column; gap: 14px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-height: 82vh; border-radius: 10px; }
+  .lightbox span { color: var(--muted); font-size: 15px; }
+
+  @media (max-width: 820px) {
+    .grid, .two { grid-template-columns: 1fr; }
+    nav a.hide-sm { display: none; }
+    .hero { padding-top: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Elnaz <span>Shariat</span></a>
+    <nav>
+      <a class="hide-sm" href="#projects" data-i18n="nav_projects">Projects</a>
+      <a class="hide-sm" href="#about" data-i18n="nav_about">About</a>
+      <a class="hide-sm" href="#contact" data-i18n="nav_contact">Contact</a>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language">فارسی</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <p class="eyebrow" data-i18n="eyebrow">Exhibition Booth Designer · Civil Engineer</p>
+    <h1 data-i18n="title">Designing exhibition spaces that tell a brand's story.</h1>
+    <p class="lead" data-i18n="lead">I design exhibition booths in SketchUp and bring them to life with 3ds Max renders. Below is a selection of recent work.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects" data-i18n="cta_projects">View projects</a>
+      <a class="btn" href="#contact" data-i18n="cta_contact">Get in touch</a>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2 data-i18n="h_projects">Selected Projects</h2>
+      <div class="grid">
+
+        <article class="card" data-img="images/persia-machinery.jpg" data-cap-key="p1_title">
+          <img src="images/persia-machinery.jpg" alt="Persia Machinery exhibition booth render" loading="lazy">
+          <div class="body">
+            <h3 data-i18n="p1_title">Persia Machinery</h3>
+            <p data-i18n="p1_desc">A black and yellow booth for a heavy-machinery group, with an angled sign canopy, backlit product panels, a patterned screen wall and a glowing floor edge.</p>
+            <div class="tags"><span class="tag">SketchUp</span><span class="tag">3ds Max</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-img="images/fidar-fouad.jpg" data-cap-key="p2_title">
+          <img src="images/fidar-fouad.jpg" alt="Fidar Fouad exhibition booth render" loading="lazy">
+          <div class="body">
+            <h3 data-i18n="p2_title">Fidar Fouad</h3>
+            <p data-i18n="p2_desc">A corner booth built around layered vertical fins in black and yellow, with a coffee corner, reception desk and open seating areas.</p>
+            <div class="tags"><span class="tag">SketchUp</span><span class="tag">3ds Max</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-img="images/ina-rah-machine.jpg" data-cap-key="p3_title">
+          <img src="images/ina-rah-machine.jpg" alt="INA Rah Machine exhibition booth render" loading="lazy">
+          <div class="body">
+            <h3 data-i18n="p3_title">INA Rah Machine</h3>
+            <p data-i18n="p3_desc">A truss-framed booth with a curved sign band, green wall and large screens, showing real machinery on the stand alongside a café-style meeting zone.</p>
+            <div class="tags"><span class="tag">SketchUp</span><span class="tag">3ds Max</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-img="images/jahan-folad.jpg" data-cap-key="p4_title">
+          <img src="images/jahan-folad.jpg" alt="Jahan Folad exhibition booth render" loading="lazy">
+          <div class="body">
+            <h3 data-i18n="p4_title">Jahan Folad</h3>
+            <p data-i18n="p4_desc">An open-plan booth in dark frames with turquoise brand accents, vertical LED strips, a green wall and a video wall at the main corner.</p>
+            <div class="tags"><span class="tag">SketchUp</span><span class="tag">3ds Max</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap two">
+      <div class="about">
+        <h2 data-i18n="h_about">About</h2>
+        <p data-i18n="about1">I am a civil engineering graduate working in exhibition booth design. My engineering background shapes how I plan structure, circulation and materials, so each design works as a real space and not only as an image.</p>
+        <p data-i18n="about2">I model each booth in SketchUp and produce the final renders in 3ds Max, using AutoCAD for drawings and Photoshop for finishing.</p>
+      </div>
+      <div>
+        <h2 data-i18n="h_skills">Skills</h2>
+        <div class="skills">
+          <div class="skill"><strong>SketchUp</strong><small data-i18n="s_model">3D modeling</small></div>
+          <div class="skill"><strong>3ds Max</strong><small data-i18n="s_render">Rendering</small></div>
+          <div class="skill"><strong>AutoCAD</strong><small data-i18n="s_draw">Technical drawings</small></div>
+          <div class="skill"><strong>Photoshop</strong><small data-i18n="s_post">Image finishing</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2 data-i18n="h_exp">Experience & Education</h2>
+      <div class="item">
+        <h3 data-i18n="exp_title">Exhibition Booth Designer</h3>
+        <p class="meta" data-i18n="exp_meta">Booth design work</p>
+        <p data-i18n="exp_desc">Concept design and 3D modeling of exhibition booths, followed by photorealistic renders for client presentation.</p>
+      </div>
+      <div class="item">
+        <h3 data-i18n="edu_title">B.Sc. in Civil Engineering</h3>
+        <p class="meta" data-i18n="edu_meta">Graduate</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 data-i18n="h_contact">Let's work together</h2>
+      <p data-i18n="contact_p">Have a booth project in mind? Send me a message.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:elishariyat2000@gmail.com">elishariyat2000@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/elnaz-shariat-47b669336" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Elnaz Shariat</footer>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <img id="lbImg" alt="">
+  <span id="lbCap"></span>
+</div>
+
+<script>
+  var T = {
+    en: {
+      nav_projects: "Projects", nav_about: "About", nav_contact: "Contact",
+      eyebrow: "Exhibition Booth Designer · Civil Engineer",
+      title: "Designing exhibition spaces that tell a brand's story.",
+      lead: "I design exhibition booths in SketchUp and bring them to life with 3ds Max renders. Below is a selection of recent work.",
+      cta_projects: "View projects", cta_contact: "Get in touch",
+      h_projects: "Selected Projects",
+      p1_title: "Persia Machinery",
+      p1_desc: "A black and yellow booth for a heavy-machinery group, with an angled sign canopy, backlit product panels, a patterned screen wall and a glowing floor edge.",
+      p2_title: "Fidar Fouad",
+      p2_desc: "A corner booth built around layered vertical fins in black and yellow, with a coffee corner, reception desk and open seating areas.",
+      p3_title: "INA Rah Machine",
+      p3_desc: "A truss-framed booth with a curved sign band, green wall and large screens, showing real machinery on the stand alongside a café-style meeting zone.",
+      p4_title: "Jahan Folad",
+      p4_desc: "An open-plan booth in dark frames with turquoise brand accents, vertical LED strips, a green wall and a video wall at the main corner.",
+      h_about: "About",
+      about1: "I am a civil engineering graduate working in exhibition booth design. My engineering background shapes how I plan structure, circulation and materials, so each design works as a real space and not only as an image.",
+      about2: "I model each booth in SketchUp and produce the final renders in 3ds Max, using AutoCAD for drawings and Photoshop for finishing.",
+      h_skills: "Skills",
+      s_model: "3D modeling", s_render: "Rendering", s_draw: "Technical drawings", s_post: "Image finishing",
+      h_exp: "Experience & Education",
+      exp_title: "Exhibition Booth Designer", exp_meta: "Booth design work",
+      exp_desc: "Concept design and 3D modeling of exhibition booths, followed by photorealistic renders for client presentation.",
+      edu_title: "B.Sc. in Civil Engineering", edu_meta: "Graduate",
+      h_contact: "Let's work together",
+      contact_p: "Have a booth project in mind? Send me a message.",
+      btn: "فارسی"
+    },
+    fa: {
+      nav_projects: "پروژه‌ها", nav_about: "درباره من", nav_contact: "تماس",
+      eyebrow: "طراح غرفه نمایشگاهی · مهندس عمران",
+      title: "طراحی فضاهای نمایشگاهی که داستان برند را روایت می‌کنند.",
+      lead: "غرفه‌های نمایشگاهی را در اسکچاپ طراحی می‌کنم و با رندر تری‌دی مکس به تصویر واقعی می‌رسانم. در ادامه نمونه‌ای از کارهای اخیرم را ببینید.",
+      cta_projects: "مشاهده پروژه‌ها", cta_contact: "تماس با من",
+      h_projects: "پروژه‌های منتخب",
+      p1_title: "پرشیا ماشین",
+      p1_desc: "غرفه‌ای مشکی و زرد برای یک گروه ماشین‌آلات سنگین، با سردر شیب‌دار، پنل‌های نورپشت، دیوار طرح‌دار و نورپردازی لبه کف.",
+      p2_title: "فیدار فواد",
+      p2_desc: "غرفه‌ای گوشه‌ای با پره‌های عمودی لایه‌لایه به رنگ مشکی و زرد، همراه با گوشه قهوه، میز پذیرش و نشیمن باز.",
+      p3_title: "شینا راه ماشین",
+      p3_desc: "غرفه‌ای با اسکلت خرپایی، سردر منحنی، دیوار سبز و نمایشگرهای بزرگ، با ماشین‌آلات واقعی روی غرفه و فضای نشیمن کافه‌مانند.",
+      p4_title: "جهان فولاد",
+      p4_desc: "غرفه‌ای با پلان باز و قاب‌های تیره، رنگ فیروزه‌ای برند، المان‌های LED عمودی، دیوار سبز و ویدیووال در گوشه اصلی.",
+      h_about: "درباره من",
+      about1: "فارغ‌التحصیل مهندسی عمران هستم و در زمینه طراحی غرفه نمایشگاهی کار می‌کنم. پیشینه مهندسی‌ام در برنامه‌ریزی سازه، مسیر حرکت و مصالح کمک می‌کند تا هر طرح یک فضای واقعی باشد و فقط یک تصویر زیبا نماند.",
+      about2: "هر غرفه را در اسکچاپ مدل می‌کنم و رندر نهایی را در تری‌دی مکس می‌گیرم. اتوکد را برای نقشه‌ها و فتوشاپ را برای نهایی‌سازی تصویر به کار می‌برم.",
+      h_skills: "مهارت‌ها",
+      s_model: "مدل‌سازی سه‌بعدی", s_render: "رندرینگ", s_draw: "نقشه‌کشی فنی", s_post: "نهایی‌سازی تصویر",
+      h_exp: "سوابق و تحصیلات",
+      exp_title: "طراح غرفه نمایشگاهی", exp_meta: "فعالیت در طراحی غرفه",
+      exp_desc: "طراحی مفهومی و مدل‌سازی سه‌بعدی غرفه‌های نمایشگاهی و تهیه رندر واقع‌نما برای ارائه به کارفرما.",
+      edu_title: "کارشناسی مهندسی عمران", edu_meta: "فارغ‌التحصیل",
+      h_contact: "بیایید با هم کار کنیم",
+      contact_p: "پروژه غرفه‌ای در ذهن دارید؟ برایم پیام بفرستید.",
+      btn: "English"
+    }
+  };
+
+  var lang = "en";
+  try { lang = localStorage.getItem("lang") || "en"; } catch (e) {}
+
+  function apply(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "fa" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var v = T[l][el.getAttribute("data-i18n")];
+      if (v) el.textContent = v;
+    });
+    document.getElementById("langBtn").textContent = T[l].btn;
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  document.getElementById("langBtn").addEventListener("click", function () {
+    apply(lang === "en" ? "fa" : "en");
+  });
+  apply(lang);
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbCap = document.getElementById("lbCap");
+  document.querySelectorAll(".card").forEach(function (c) {
+    c.addEventListener("click", function () {
+      lbImg.src = c.getAttribute("data-img");
+      lbCap.textContent = T[lang][c.getAttribute("data-cap-key")];
+      lb.classList.add("open");
+    });
+  });
+  lb.addEventListener("click", function () { lb.classList.remove("open"); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") lb.classList.remove("open"); });
+</script>
+</body>
+</html>
